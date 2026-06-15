@@ -21,7 +21,7 @@ if len(entrada) == 1:
 
             if resultado == 0:
                 print("La maquina responde. Buscando MAC ....")
-                comando_arp = "arp -a" + ip
+                comando_arp = "arp -a " + ip
                 os.system(comando_arp)
             else:
                 print("La máquina no responde")
