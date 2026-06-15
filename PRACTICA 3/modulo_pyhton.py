@@ -15,3 +15,17 @@ if len (entrada) == 1:
 
         if 0 <= o1 <= 255 and 0 <= o2 <= 255 and 0 <= o3 <= 255 and 0 <= o4 <= 255:
             print("IP válida")
+
+            comando = "ping -c 1 " + ip
+            resultado = os.system(comando)
+
+            if resultado == 0:
+                print("La máquina responde")
+            else:
+                print("La máquina no responde")
+        else:
+            print("Error, La ip debe de estar entre 0 y 255")
+    else:
+        print("Error, La IP de tener 4 bloques")
+else:
+    print("Error, Solo se puede introducir una IP")
