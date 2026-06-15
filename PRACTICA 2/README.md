@@ -1,18 +1,18 @@
-Este módulo recibe una dirección IP desde la terminal, comprueba si es válida y verifica si la **máquina responde** realizando un **ping**.
+# Este módulo recibe una dirección IP desde la terminal, comprueba si es válida y muestra a qué **clase (A, B, C, D o E)** pertenece.
 
-## Importar `sys` y `os`
+## Importar sys
 
-Se usa `sys` para leer la IP que se escribe al ejecutar el programa y `os` para ejecutar el comando `ping`.
+Se usa para leer la IP que se escribe al ejecutar el programa.
 
 Ejemplo:
 
-```
+```python
 python programa.py 192.168.1.1
 ```
 
 ## Guardar los datos
 
-```
+```python
 entrada = sys.argv[1:]
 ```
 
@@ -20,7 +20,7 @@ Guarda la IP y comprueba que solo haya una.
 
 ## Separar la IP
 
-```
+```python
 bloques = ip.split('.')
 ```
 
@@ -28,19 +28,19 @@ Divide la IP en cuatro bloques usando los puntos.
 
 Ejemplo:
 
-```
+```text
 192.168.1.1
 ```
 
 se convierte en:
 
-```
+```python
 ["192", "168", "1", "1"]
 ```
 
 ## Comprobar que tiene 4 bloques
 
-```
+```python
 if len(bloques) == 4:
 ```
 
@@ -48,7 +48,7 @@ Comprueba que la IP tenga cuatro bloques.
 
 ## Convertir los bloques a números
 
-```
+```python
 o1 = int(bloques[0])
 o2 = int(bloques[1])
 o3 = int(bloques[2])
@@ -59,48 +59,33 @@ Convierte cada bloque a un número para poder comprobarlo.
 
 ## Comprobar si la IP es válida
 
-```
+```python
 if 0 <= o1 <= 255 and ...
 ```
 
-Comprueba que cada bloque tenga un valor entre 0 y 255.
+Comprueba que cada bloque tenga un valor entre 0 y 255. Si no es así, muestra un mensaje de error.
 
-Si no es así, muestra un mensaje de error.
+## Identificar la clase
 
-## Realizar el ping
+Según el valor del primer bloque o1, el programa indica la clase de la IP:
 
-```
-comando = "ping -c 1 " + ip
-resultado = os.system(comando)
-```
-
-Crea el comando `ping` y lo ejecuta para comprobar si la máquina responde.
-
-## Mostrar el resultado
-
-Si `resultado` es `0`, el programa muestra:
-
-```
-La máquina responde
-```
-
-Si es distinto de `0`, muestra:
-
-```
-La máquina no responde
-```
+* 1 - 126: Clase A
+* 128 - 191: Clase B
+* 192 - 223: Clase C
+* 224 - 239: Clase D
+* 240 - 254: Clase E
 
 ## Ejemplo
 
 Entrada:
 
-```
-python programa.py 8.8.8.8
+```python
+python programa.py 192.168.1.1
 ```
 
 Salida:
 
-```
+```text
 IP válida
-La máquina responde
+Clase: C
 ```
