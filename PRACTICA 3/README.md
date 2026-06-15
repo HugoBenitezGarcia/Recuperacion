@@ -1,8 +1,8 @@
-Este módulo recibe una dirección IP desde la terminal, comprueba si es válida y verifica si la **máquina responde** realizando un **ping**.
+Este módulo recibe una **dirección IP** desde la terminal, comprueba si es válida y realiza un **ping** para verificar si la máquina responde.
 
 ## Importar `sys` y `os`
 
-Se usa `sys` para leer la IP que se escribe al ejecutar el programa y `os` para ejecutar el comando `ping`.
+Se usa `sys` para leer la IP introducida y `os` para ejecutar el comando `ping`.
 
 Ejemplo:
 
@@ -16,7 +16,7 @@ python programa.py 192.168.1.1
 entrada = sys.argv[1:]
 ```
 
-Guarda la IP y comprueba que solo haya una.
+Guarda la IP introducida y comprueba que solo se haya escrito una.
 
 ## Separar la IP
 
@@ -24,7 +24,7 @@ Guarda la IP y comprueba que solo haya una.
 bloques = ip.split('.')
 ```
 
-Divide la IP en cuatro bloques usando los puntos.
+Divide la dirección IP en sus cuatro bloques usando los puntos.
 
 Ejemplo:
 
@@ -44,7 +44,7 @@ se convierte en:
 if len(bloques) == 4:
 ```
 
-Comprueba que la IP tenga cuatro bloques.
+Comprueba que la IP tenga exactamente cuatro bloques.
 
 ## Convertir los bloques a números
 
@@ -63,7 +63,7 @@ Convierte cada bloque a un número para poder comprobarlo.
 if 0 <= o1 <= 255 and ...
 ```
 
-Comprueba que cada bloque tenga un valor entre 0 y 255.
+Comprueba que cada bloque tenga un valor entre **0 y 255**.
 
 Si no es así, muestra un mensaje de error.
 
@@ -78,13 +78,13 @@ Crea el comando `ping` y lo ejecuta para comprobar si la máquina responde.
 
 ## Mostrar el resultado
 
-Si `resultado` es `0`, el programa muestra:
+Si `resultado` es `0`:
 
 ```
 La máquina responde
 ```
 
-Si es distinto de `0`, muestra:
+Si es distinto de `0`:
 
 ```
 La máquina no responde
