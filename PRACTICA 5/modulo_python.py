@@ -17,3 +17,15 @@ if len(entrada) == 1 or len(entrada) == 3:
         if 0 <= o1 < 255 and 0 <= o2 < 255 and 0 <= o3 <= 255 and 0 <= o4 <= 255:
             valido = True
             puertos = [21, 22, 80, 443, 8080]
+
+            if len(entrada) == 3:
+                if entrada[1] == "-p":
+                    partes_puertos = entrada[2].split('.')
+                    puertos = []
+
+                    for p in partes_puertos:
+                        if p.isdigit():
+                            num_p = int(p)
+                            if 1 <= num_p <= 65535:
+                                if num_p not in puertos:
+                                    puertos.append(num_p)
