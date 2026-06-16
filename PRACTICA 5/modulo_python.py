@@ -29,3 +29,17 @@ if len(entrada) == 1 or len(entrada) == 3:
                             if 1 <= num_p <= 65535:
                                 if num_p not in puertos:
                                     puertos.append(num_p)
+                            else:
+                                valido = False
+                                print("Error, Los puertos tienen que estar entre 1 y 65535")
+                        else:
+                            valido = False
+                            print("Error, Los puertos tienen que ser numeros enteros")
+                    else:
+                        valido = False
+                        print("Error, Opcion incorrecta, usa -p")
+                if valido == True:
+                    abiertos = 0
+                    total = len(puertos)
+
+                    print("Escanenado" + ip)
