@@ -48,3 +48,18 @@ if len(entrada) == 1 or len(entrada) == 3:
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         s.settimeout(0.5)
                         resultado = s.connect_ex((ip, puerto))
+
+                        if resultado == 0:
+                            print("Puerto " + str(puerto) + " ABIERTO")
+                            abiertos = abiertos + 1
+                        else:
+                            print("Puerto " + str(puerto) + " CERRADO")
+
+                        s.close()
+                    print("Resumen: " + str(abiertos) + " puertos abiertos de " + str(total) + " analizados.")
+                else:
+                    print("Error, La IP debe de estar entre 0 y 255")
+            else:
+                print("Error, La IP debe tener 4 bloques")
+        else:
+            print("Error, Solo se puede introducir una IP")
