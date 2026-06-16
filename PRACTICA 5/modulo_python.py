@@ -42,4 +42,9 @@ if len(entrada) == 1 or len(entrada) == 3:
                     abiertos = 0
                     total = len(puertos)
 
-                    print("Escanenado" + ip)
+                    print("Escanenado " + ip)
+
+                    for puerto in puertos:
+                        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                        s.settimeout(0.5)
+                        resultado = s.connect_ex((ip, puerto))
