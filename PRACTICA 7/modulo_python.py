@@ -23,3 +23,28 @@ if len(entrada) == 4:
                 encontrado1 = True
             except:
                 pass
+
+    if encontrado1 == False:
+        print("No se encontro la clave")
+
+    encontrado2 = False
+    archivo2 = zipfile.ZipFile(zip_diccionario)
+
+    try:
+        diccionario = open(txt_diccionario, "r", encoding="utf-8")
+        for linea in diccionario:
+            if encontrado2 == False:
+                clave_dic = linea.strip()
+                try:
+                    archivo2.extractall(pwd=clave_dic.encode())
+                    print("Ataque exitoso, Clave; " + clave_dic)
+                    encontrado2 = True
+                except:
+                    pass
+        diccionario.close()
+    except:
+        print("Error al abrir el txt")
+    if encontrado2 == False:
+        print("No se encontro la clave")
+else:
+    print("Error, usa: python modulo_python.py zip_1 longitud zip_2 archivo_texto")
