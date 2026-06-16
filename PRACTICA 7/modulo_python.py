@@ -14,4 +14,12 @@ if len(entrada) == 4:
     encontrado1 = False
     archivo1 = zipfile.ZipFile(zip_fuerza)
 
-    
+    for intento in itertools.product(caracteres, repeat=longitud):
+        if encontrado1 == False:
+            clave_bruta = "".join(intento)
+            try:
+                archivo1.extractall(pwd=clave_bruta.encode())
+                print("Fuerza bruta completada, Clave: " + clave_bruta)
+                encontrado1 = True
+            except:
+                pass
