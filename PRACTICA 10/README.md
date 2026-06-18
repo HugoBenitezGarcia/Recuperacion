@@ -19,6 +19,15 @@ Despliegue de una aplicación web completa orientada a la consulta y gestión de
 - [x] **Persistencia de datos** mediante volúmenes para el registro de favoritos.
 - [x] Soporte **HTTPS** mediante la generación de certificados SSL autofirmados.
 
+## Evidencias de funcionamiento
+
+Aquí puedes ver la infraestructura levantándose correctamente mediante Docker:
+![Estado de los contenedores](assets/iniciado.png)
+
+
+Y aquí el resultado final de la Enciclopedia de Protocolos funcionando en el navegador:
+![Resultado web](assets/web-funcionando.png)
+
 ## Instrucciones de Despliegue
 
 1. Clonar el repositorio en local.
