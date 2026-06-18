@@ -40,7 +40,7 @@ $stmt->bind_param("ss", $usuario, $password);   // Vinculamos usuario y contrase
 
 // Ejecutamos la inserción
 if ($stmt->execute()) {
-    echo json_encode(["ok" => true]);        
+    echo json_encode(["ok" => true]);
 } else {
     echo json_encode(["ok" => false, "msg" => "Error al registrar en la base de datos"]);
 }
