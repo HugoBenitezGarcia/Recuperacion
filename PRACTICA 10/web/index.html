@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProtocolPedia — Directorio de Red</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <h1 class="logo">ProtocolPedia</h1>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#protocolos">Protocolos</a></li>
+            <li><a href="#historial" id="nav-historial" hidden>Mis Favoritos</a></li>
+        </ul>
+    </nav>
+    <section class="header-actions" aria-label="Acciones de usuario">
+        <button id="btn-login">Iniciar sesión</button>
+        <button id="btn-logout" hidden>Cerrar sesión</button>
+        <button id="btn-carrito" hidden>Favoritos <span id="num-carrito">0</span></button>
+    </section>
+</header>
+
+<main>
+    <section id="inicio" class="seccion-hero">
+        <h2>Directorio de Protocolos de Red</h2>
+        <p>Explora, aprende y guarda tus protocolos favoritos según el modelo OSI y TCP/IP.</p>
+        <button id="btn-hero">Explorar Directorio</button>
+    </section>
+
+    <section id="protocolos" class="seccion-productos">
+        <h2>Listado de Protocolos</h2>
+        <nav class="filtros" aria-label="Filtrar por capa">
+            <button class="filtro activo" data-cat="todos">Todos</button>
+            <button class="filtro" data-cat="Aplicacion">Capa de Aplicación</button>
+            <button class="filtro" data-cat="Transporte">Capa de Transporte</button>
+            <button class="filtro" data-cat="Red">Capa de Red</button>
+        </nav>
+        <section id="lista-productos" aria-label="Lista de protocolos"></section>
+    </section>
+
+    <section id="historial" class="seccion-historial" hidden>
+        <h2>Mis Protocolos Guardados</h2>
+        <section id="lista-historial">
+            <p id="historial-vacio" class="muted">No has guardado nada todavía.</p>
+        </section>
+    </section>
+</main>
+
+<dialog id="modal-login">
+    <nav class="modal-tabs" aria-label="Pestañas de acceso">
+        <button class="tab activo" data-tab="login">Acceder</button>
+        <button class="tab" data-tab="registro">Crear cuenta</button>
+    </nav>
+
+    <section id="panel-login" class="tab-panel">
+        <p id="error-login" class="error" hidden></p>
+        <form id="form-login" method="post" action="javascript:void(0)" novalidate>
+            <label>Usuario</label>
+            <input type="text" id="input-usuario" placeholder="Ej: hugo">
+            <label>Contraseña</label>
+            <input type="password" id="input-contrasena" placeholder="Tu contraseña">
+            <button type="submit">Entrar</button>
+            <button type="button" id="btn-cancelar">Cancelar</button>
+        </form>
+    </section>
+
+    <section id="panel-registro" class="tab-panel" hidden>
+        <p id="error-registro" class="error" hidden></p>
+        <p id="ok-registro" class="ok" hidden>Cuenta creada</p>
+        <form id="form-registro" method="post" action="javascript:void(0)" novalidate>
+            <label>Usuario</label>
+            <input type="text" id="reg-usuario" placeholder="Nuevo usuario">
+            <label>Contraseña</label>
+            <input type="password" id="reg-contrasena" placeholder="Nueva contraseña">
+            <label>Repetir contraseña</label>
+            <input type="password" id="reg-contrasena2" placeholder="Repite la contraseña">
+            <button type="submit">Registrar</button>
+            <button type="button" id="btn-cancelar-reg">Cancelar</button>
+        </form>
+    </section>
+</dialog>
+
+<aside id="panel-carrito" hidden>
+    <h2>Marcadores</h2>
+    <section id="items-carrito"></section>
+    <p id="carrito-vacio">Añade protocolos para guardarlos.</p>
+    <button id="btn-comprar">Guardar en la BD</button>
+    <button id="btn-cerrar-carrito">Cerrar</button>
+</aside>
+
+<p id="notificacion" class="notificacion" hidden></p>
+<script src="script.js"></script>
+</body>
+</html>
